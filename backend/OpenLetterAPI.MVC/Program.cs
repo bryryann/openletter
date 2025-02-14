@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using OpenLetterAPI.MVC.Models;
 using OpenLetterAPI.MVC.Data;
+using OpenLetterAPI.MVC.Interfaces;
+using OpenLetterAPI.MVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +53,8 @@ builder.Services.AddAuthentication(o =>
     };
 
 });
+
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
